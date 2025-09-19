@@ -35,12 +35,6 @@ It is designed for **penetration testers, bug bounty hunters, and security resea
 
 ---
 
-📸 Demo
-
-(Add your screenshot here, e.g. a run against `pathao.com`)
-
----
-
 ## ⚙️ Installation
 
 Clone the repo and make the script executable:
