@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faria Ahmed | Portfolio</title>
+  <style>
+    /* ---------- Reset ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- Particle Background ---------- */
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      background: #000;
+    }
+
+    /* ---------- Navbar ---------- */
+    header {
+      position: fixed;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      z-index: 2;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      color: #00ffea;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    nav ul li a {
+      color: #00ffea;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00ffaa;
+    }
+
+    /* ---------- Hero Section ---------- */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #00ffea;
+      text-shadow: 0 0 15px #00ffaa;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #ccc;
+    }
+
+    .btn {
+      background: #00ffea;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00ffaa;
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #00ffea;
+    }
+
+    /* ---------- About ---------- */
+    .about p {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      color: #ddd;
+    }
+
+    /* ---------- Skills ---------- */
+    .skills {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .skill {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill p {
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+      color: #00ffea;
+    }
+
+    .progress {
+      background: #111;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 25px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      color: #fff;
+      text-align: right;
+      padding-right: 10px;
+      line-height: 25px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-radius: 20px;
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* ---------- Education Timeline ---------- */
+    .education {
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+      padding-left: 40px;
+      border-left: 3px solid rgba(0,255,234,0.4);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -12px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      background: #00ffea;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #00ffaa;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #00ffaa; }
+      50% { box-shadow: 0 0 25px #00ffaa; }
+      100% { box-shadow: 0 0 10px #00ffaa; }
+    }
+
+    .timeline-content {
+      background: rgba(0,0,0,0.7);
+      padding: 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,255,234,0.2);
+      transition: 0.3s;
+    }
+
+    .timeline-content:hover {
+      box-shadow: 0 0 25px rgba(0,255,234,0.6);
+    }
+
+    .timeline-content h4 {
+      color: #00ffea;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      color: #ccc;
+      margin: 0.3rem 0;
+    }
+
+    .timeline-content .year {
+      color: #00ffaa;
+      font-weight: bold;
+    }
+
+    /* Different colors for each skill */
+    .progress-bar.web { width: 60%; background: #00c9ff; }
+    .progress-bar.linux { width: 60%; background: #e63946; }
+    .progress-bar.ad { width: 40%; background: #ff7f11; }
+    .progress-bar.python { width: 40%; background: #2a9d8f; }
+    .progress-bar.js { width: 70%; background: #f4a261; }
+
+    /* ---------- Projects ---------- */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: rgba(0,0,0,0.7);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,255,234,0.4);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0,255,234,0.8);
+    }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 0.5rem;
+      font-size: 1.2rem;
+      color: #00ffea;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      color: #00ffaa;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.7);
+      color: #00ffea;
+      z-index: 2;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particle Background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <h1>Faria Ahmed</h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- Hero -->
+<section class="hero">
+  <h2>Hi, I'm Faria </h2>
+  <p id="typing-text"></p>
+  <a href="#experience" class="btn">Explore My Work</a>
+</section>
+
+<script>
+const text = "Jr. Pentester & Bug Hunter | Passionate about Web Security, Red Teaming, and Ethical Hacking.";
+const typingElement = document.getElementById("typing-text");
+let index = 0;
+
+function typeEffect() {
+  if (index < text.length) {
+    typingElement.textContent += text.charAt(index);
+    index++;
+    setTimeout(typeEffect, 50); // typing speed (ms per letter)
+  } else {
+    // Remove the blinking cursor after typing is done
+    typingElement.classList.remove("cursor");
+  }
+}
+
+window.addEventListener("load", typeEffect);
+</script>
+
+<style>
+/* Blinking cursor effect */
+.cursor::after {
+  content: '|';
+  animation: blink 0.8s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+</style>
+
+
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h3>About Me</h3>
+    <p>
+      Enthusiastic and motivated beginner in penetration testing and bug bounty hunting, 
+      currently a student at Khulna University in the Forestry and Wood Technology discipline. 
+      Strongly interested in web application and network security, with hands-on practice 
+      on platforms like TryHackMe and HackTheBox.
+    </p>
+  </section>
+
+<!-- Education -->
+<section id="education" class="education">
+  <h3>Education</h3>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>🎓 Bachelor’s in Forestry & Wood Technology</h4>
+        <p><strong>Forestry & Wood Technology Discipline — Khulna University, Khulna, Bangladesh</strong></p>
+        <p class="year">Expected Graduation: December 2025</p>
+        <p>Currently pursuing studies while developing practical skills in cybersecurity, penetration testing, and web security.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>📘 Higher Secondary Certificate (HSC)</h4>
+        <p><strong>Government Bangabandhu College, Khulna</strong></p>
+        <p class="year">2020 | Group: Science</p>
+        <p><strong>Result:</strong> GPA 5.00 (out of 5.00)</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>📗 Secondary School Certificate (SSC)</h4>
+        <p><strong>Government Coronation Secondary Girls' School, Khulna</strong></p>
+        <p class="year">2018 | Group: Science</p>
+        <p><strong>Result:</strong> GPA 4.89 (out of 5.00)</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Experience -->
+<section id="experience">
+  <h3>Experience</h3>
+  <div class="projects">
+    
+    <!-- Junior Red Team Analyst -->
+    <div class="project-card">
+      <h4>🔴 Junior Red Team Analyst (Internship)</h4>
+      <p>Byte Capsule IT | Remote | Sep 2025 – Present</p>
+      <ul>
+        <li>Gaining hands-on exposure to red team methodologies including initial access, privilege escalation, and lateral movement in simulated environments.</li>
+        <li>Training in weaponization, defense evasion, and adversary emulation as part of a structured 2-month internship program.</li>
+      </ul>
+    </div>
+
+    <!-- Junior Pentester & Bug Hunter -->
+    <div class="project-card">
+      <h4>🔍 Junior Pentester & Bug Hunter</h4>
+      <p>Byte Capsule IT | Remote | Jan 2025 – Aug 2025</p>
+      <ul>
+        <li>Practiced web application and API penetration testing on TryHackMe, HackTheBox, HackerOne, Bugcrowd, and YesWeHack.</li>
+        <li>Identified and exploited vulnerabilities including XSS, SQLi, IDOR, and CORS in both labs and real-world environments.</li>
+        <li>Performed network scanning, enumeration, and exploitation to strengthen skills in offensive security testing.</li>
+      </ul>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- Resume -->
+<section id="resume" class="resume" style="text-align: center; padding: 4rem 2rem; background: rgba(0,0,0,0.7); border-radius: 10px; max-width: 700px; margin: 2rem auto;">
+  <h3 style="color:#00ffea; margin-bottom:1rem;">Resume</h3>
+  <p style="color:#ccc; font-size:1.1rem; margin-bottom:2rem;">
+    Download my latest resume to know more about my skills and experience.
+  </p>
+  <a href="https://github.com/fariaahmed13/Portfolio/blob/main/faria_cv.pdf" download 
+     class="btn" 
+     style="padding: 0.8rem 1.5rem; font-weight:bold; display:inline-block;">
+     📄 Download Resume
+  </a>
+</section>
+  <!-- Skills -->
+  <section id="skills" class="skills">
+    <h3>Skills</h3>
+    <div class="skill">
+      <p>Web Pentesting</p>
+      <div class="progress">
+        <div class="progress-bar web">60%</div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p>Linux</p>
+      <div class="progress">
+        <div class="progress-bar linux">60%</div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p>Python & Scripting</p>
+      <div class="progress">
+        <div class="progress-bar python">40%</div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p>JavaScript / HTML / CSS</p>
+      <div class="progress">
+        <div class="progress-bar js">70%</div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Certifications -->
+<section id="certifications" class="certifications">
+  <h3>Certifications</h3>
+  <div class="projects" style="display: flex; justify-content: center;">
+    <div class="project-card" style="max-width: 400px; text-align: center;">
+      <h4>Professional Bug Hunting & Advanced Web Application Security Testing</h4>
+      <p>Byte Capsule | Batch 01</p>
+      <p>Completed recently 🎉</p>
+      <img src="https://raw.githubusercontent.com/fariaahmed13/Portfolio/main/photo_2025-09-10_13-57-11.jpg" 
+           alt="Byte Capsule Certification" 
+           style="width:100%; max-width:350px; border-radius:10px; margin-top:10px; box-shadow: 0 0 15px rgba(0,255,234,0.4);">
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="projects">
+  <h3>Projects</h3>
+  <div class="projects" style="display: flex; justify-content: center; gap: 2rem;">
+
+  
+    <!-- Reconyx Tool -->
+    <div class="project-card">
+      <h4>🕵️ Reconyx - Domain Recon Tool</h4>
+      <p>A fast & automated bash-based domain reconnaissance tool for subdomain enumeration, API key syncing, and live subdomain checking. Built for penetration testers and bug bounty hunters.</p>
+      <p><a href="https://github.com/fariaahmed13/Reconyx" target="_blank">View on GitHub</a></p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* Centered project card */
+.project-card {
+  max-width: 500px;
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+/* Scroll reveal (like education timeline) */
+.project-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-in-out;
+}
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+// Grab project card
+const projectCards = document.querySelectorAll('.project-card');
+
+function revealOnScroll(elements) {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  elements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+function handleScroll() {
+  revealOnScroll(projectCards);
+}
+
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('load', handleScroll);
+</script>
+
+
+
+<!-- Contact -->
+<section id="contact" class="contact">
+  <h3>Contact</h3>
+  <p>Let's connect! 🚀</p>
+  <a href="mailto:contact.fariaahmed@gmial.com">📧 Email</a>
+  <a href="https://www.linkedin.com/in/fariaahmedmeem/" target="_blank">💼 LinkedIn</a>
+  <a href="https://github.com/fariaahmed13" target="_blank">🐙 GitHub</a>
+  <p>Khulna, Bangladesh</p>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Faria Ahmed | Built with passion and precision</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Timeline reveal
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    function revealTimeline() {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      timelineItems.forEach(item => {
+        const boxTop = item.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          item.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealTimeline);
+    window.addEventListener('load', revealTimeline);
+
+    // Particle Animation
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particlesArray = [];
+    const maxParticles = 80;
+
+    class Particle {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 2 - 1;
+        this.speedY = Math.random() * 2 - 1;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+
+      draw() {
+        ctx.fillStyle = "#00ffea";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      for (let i = 0; i < maxParticles; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        particlesArray.push(new Particle(x, y));
+      }
+    }
+
+    function connect() {
+      for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+          const dx = particlesArray[a].x - particlesArray[b].x;
+          const dy = particlesArray[a].y - particlesArray[b].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 120) {
+            ctx.strokeStyle = "rgba(0,255,234,0.2)";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      connect();
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
+
