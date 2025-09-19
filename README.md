@@ -1,14 +1,15 @@
 Reconyx
 
-Fast & Automated Domain Reconnaissance Tool
+⚡ Fast & Automated Domain Reconnaissance Tool
 
-Reconyx is a **bash-based subdomain enumeration and reconnaissance tool** that aggregates results from multiple sources, supports API key syncing, and provides features for verbose output and live subdomain checking.
+Reconyx is a **bash-based subdomain enumeration and reconnaissance tool** that combines results from multiple third-party utilities and passive sources. It supports API key integration, provides flexible verbose output, and can automatically identify live subdomains.
 
-It is designed for **penetration testers, bug bounty hunters, and security researchers** who need quick, reliable, and organized domain reconnaissance.
+It is designed for **penetration testers, bug bounty hunters, and security researchers** who need quick, reliable, and well-organized domain reconnaissance.
+
 
 ---
 
-## 🚀 Features
+🚀 Features
 
 <img width="1356" height="810" alt="image" src="https://github.com/user-attachments/assets/271b6913-f6c7-4600-99a2-74612b514640" /># Reconyx
 
@@ -34,7 +35,7 @@ It is designed for **penetration testers, bug bounty hunters, and security resea
 
 ---
 
-## 📸 Demo
+📸 Demo
 
 (Add your screenshot here, e.g. a run against `pathao.com`)
 
@@ -117,7 +118,7 @@ Reconyx will automatically detect and sync available keys.
 
 ---
 
-## 📂 Output Structure
+📂 Output Structure
 
 ```
 example.com/
@@ -127,14 +128,14 @@ example.com/
 
 ---
 
-## ⚠️ Disclaimer
+⚠️ Disclaimer
 
 This tool is intended for **educational and authorized security testing purposes only**.
 Do not use Reconyx against targets you don’t own or have explicit permission to test.
 
 ---
 
-## 👨‍💻 Author
+👨‍💻 Author
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fariaahmedmeem/)
 
