@@ -1,6 +1,4 @@
-<img width="1356" height="810" alt="image" src="https://github.com/user-attachments/assets/271b6913-f6c7-4600-99a2-74612b514640" /># Reconyx
-
-**Fast & Automated Domain Reconnaissance Tool**
+Fast & Automated Domain Reconnaissance Tool
 
 Reconyx is a **bash-based subdomain enumeration and reconnaissance tool** that aggregates results from multiple sources, supports API key syncing, and provides features for verbose output and live subdomain checking.
 
@@ -10,7 +8,7 @@ It is designed for **penetration testers, bug bounty hunters, and security resea
 
 ## 🚀 Features
 
-
+<img width="1356" height="810" alt="image" src="https://github.com/user-attachments/assets/271b6913-f6c7-4600-99a2-74612b514640" /># Reconyx
 
 * 🎨 Clean ASCII banner with typing effect
 * 🔧 Automatic dependency check & installation
