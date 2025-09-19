@@ -1,3 +1,5 @@
+Reconyx
+
 Fast & Automated Domain Reconnaissance Tool
 
 Reconyx is a **bash-based subdomain enumeration and reconnaissance tool** that aggregates results from multiple sources, supports API key syncing, and provides features for verbose output and live subdomain checking.
@@ -134,5 +136,9 @@ Do not use Reconyx against targets you don’t own or have explicit permission t
 
 ## 👨‍💻 Author
 
-**Faria Ahmed**
-GitHub: [fariaahmed13](https://github.com/fariaahmed13)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fariaahmedmeem/)
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/fariaahmed13)
+
+[![Gmail](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact.fariaahmed@gmail.com)
+
