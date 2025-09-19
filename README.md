@@ -1,36 +1,48 @@
-# Reconyx
-# Reconyx - Domain Recon Tool
+<img width="1356" height="810" alt="image" src="https://github.com/user-attachments/assets/271b6913-f6c7-4600-99a2-74612b514640" /># Reconyx
 
-Reconyx is a **bash-based domain reconnaissance tool** designed for subdomain enumeration and discovery.
-It automates collection from multiple sources, manages API key syncing, and provides options for verbose output and live subdomain checking.
+**Fast & Automated Domain Reconnaissance Tool**
+
+Reconyx is a **bash-based subdomain enumeration and reconnaissance tool** that aggregates results from multiple sources, supports API key syncing, and provides features for verbose output and live subdomain checking.
+
+It is designed for **penetration testers, bug bounty hunters, and security researchers** who need quick, reliable, and organized domain reconnaissance.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-* 🎨 **Colored ASCII Banner** with typing effect.
-* 🔧 **Dependency auto-check & installer** for required tools.
-* 🔑 **API key sync** (Subfinder, Chaos, Findomain).
-* 🌐 **Subdomain enumeration** using:
+
+
+* 🎨 Clean ASCII banner with typing effect
+* 🔧 Automatic dependency check & installation
+* 🔑 API key syncing from existing configs (Subfinder, Chaos, Findomain)
+* 🌐 Subdomain discovery via:
 
   * [Subfinder](https://github.com/projectdiscovery/subfinder)
   * [Assetfinder](https://github.com/tomnomnom/assetfinder)
   * [Findomain](https://github.com/findomain/findomain)
-  * [Chaos](https://github.com/projectdiscovery/chaos-client) (if API key set)
+  * [Chaos](https://github.com/projectdiscovery/chaos-client)
   * [crt.sh](https://crt.sh/)
-* 📂 **Organized results** saved into per-domain folders.
-* 🔍 **Verbose mode** (`-v`) to print results live with typing effect.
-* 🟢 **Alive subdomain check** (`-a`) with [httpx](https://github.com/projectdiscovery/httpx) or fallback `curl`.
-* 📝 Saves results into:
+* 📂 Organized results: separate folder per target
+* 📝 Output files:
 
-  * `domain/subdomains_domain.txt`
-  * `domain/alive_subdomains_domain.txt` (if `-a` used)
+  * `subdomains_target.txt`
+  * `alive_subdomains_target.txt` (with `-a`)
+* 🔍 Optional flags:
+
+  * `-v` → Verbose (show subdomains live)
+  * `-a` → Alive subdomain detection (using [httpx](https://github.com/projectdiscovery/httpx) or fallback `curl`)
+
+---
+
+## 📸 Demo
+
+(Add your screenshot here, e.g. a run against `pathao.com`)
 
 ---
 
 ## ⚙️ Installation
 
-Clone the repo:
+Clone the repo and make the script executable:
 
 ```bash
 git clone https://github.com/fariaahmed13/Reconyx.git
@@ -38,73 +50,66 @@ cd Reconyx
 chmod +x reconyx
 ```
 
-Run the tool:
+Reconyx auto-checks and installs required dependencies, but ensure you have **Go** installed (for Subfinder, Assetfinder, Chaos):
 
 ```bash
-./reconyx -d example.com
+sudo apt update && sudo apt install golang -y
 ```
 
 ---
 
-## 📦 Dependencies
+## 🔑 API Setup
 
-Reconyx installs/checks dependencies automatically, but it relies on:
+Some sources require API keys for maximum results.
+Add your keys to these configs:
+
+* **Subfinder:** `~/.config/subfinder/provider-config.yaml`
+* **Chaos:** `~/.config/chaos/config.yaml`
+* **Findomain:** `~/.findomain/config.json`
+
+Reconyx will automatically detect and sync available keys.
+
+---
+
+## 📦 Dependencies
 
 * `curl`
 * `jq`
 * `subfinder`
 * `assetfinder`
 * `findomain`
-* `chaos` (optional, requires API key)
-* `httpx` (optional, for alive subdomain checking)
-
-Make sure Go is installed for `subfinder`, `assetfinder`, and `chaos`:
-
-```bash
-sudo apt install golang -y
-```
+* `chaos` (optional, needs API key)
+* `httpx` (optional, for alive subdomain check)
 
 ---
 
-## 🔑 API Keys
+## 🛠️ Usage
 
-For better results, set API keys in:
-
-* `~/.config/subfinder/provider-config.yaml`
-* `~/.config/chaos/config.yaml`
-* `~/.findomain/config.json`
-
-Reconyx will auto-detect and sync keys if present.
-
----
-
-## 🚀 Usage
-
-### Single Domain:
+### Single Domain
 
 ```bash
-./reconyx -d target.com
+./reconyx -d example.com
 ```
 
-### Domain List:
+### Multiple Domains (list)
 
 ```bash
 ./reconyx -l domains.txt
 ```
 
-### Verbose Mode (show subdomains live):
+### Verbose Mode (show subdomains live)
 
 ```bash
-./reconyx -d target.com -v
+./reconyx -d example.com -v
 ```
 
-### Alive Subdomains Only:
+### Save Alive Subdomains
 
 ```bash
-./reconyx -d target.com -a
+./reconyx -d example.com -a
 ```
 
-### Combined:
+### Combined Options
 
 ```bash
 ./reconyx -l domains.txt -v -a
@@ -112,20 +117,20 @@ Reconyx will auto-detect and sync keys if present.
 
 ---
 
-## 📂 Output Example
+## 📂 Output Structure
 
 ```
-target.com/
- ├── subdomains_target.com.txt
- └── alive_subdomains_target.com.txt
+example.com/
+ ├── subdomains_example.com.txt
+ └── alive_subdomains_example.com.txt
 ```
 
 ---
 
 ## ⚠️ Disclaimer
 
-This tool is for **educational and security research purposes only**.
-Do not use it against systems without proper authorization.
+This tool is intended for **educational and authorized security testing purposes only**.
+Do not use Reconyx against targets you don’t own or have explicit permission to test.
 
 ---
 
