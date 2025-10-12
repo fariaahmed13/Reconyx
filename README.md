@@ -1,3 +1,5 @@
+curl -X POST https://54.160.206.146:9050/ping -k -H "Content-Type: application/json" -d '{"hostname":"test-vm","os":"Windows","user":"Faria"}'
+
 Reconyx
 
 ⚡ Fast & Automated Domain Reconnaissance Tool
